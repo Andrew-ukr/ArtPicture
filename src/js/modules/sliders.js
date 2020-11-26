@@ -19,6 +19,7 @@ const sliders = (sliderContainer, sliderItems, nextBtn, prevBtn, interval) => {
       element.style.display = 'none';
     });
     sliderItem[i - 1].style.display = 'block';
+    sliderItem[i - 1].classList.add('animated', 'fadeIn')
   }
 
   function changeSliderItem() {

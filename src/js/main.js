@@ -6,4 +6,5 @@ window.addEventListener('DOMContentLoaded', () => {
 
   modals();
   sliders('.feedback', '.feedback-slider-item', 'main-next-btn', 'main-prev-btn', 3000);
+  sliders('.main-slider', '.main-slider-item', '', '', 3000);
 }); 

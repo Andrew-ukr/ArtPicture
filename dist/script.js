@@ -939,6 +939,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
   Object(_modules_modals_js__WEBPACK_IMPORTED_MODULE_0__["default"])();
   Object(_modules_sliders_js__WEBPACK_IMPORTED_MODULE_1__["default"])('.feedback', '.feedback-slider-item', 'main-next-btn', 'main-prev-btn', 3000);
+  Object(_modules_sliders_js__WEBPACK_IMPORTED_MODULE_1__["default"])('.main-slider', '.main-slider-item', '', '', 3000);
 });
 
 /***/ }),
@@ -1088,6 +1089,7 @@ var sliders = function sliders(sliderContainer, sliderItems, nextBtn, prevBtn, i
       element.style.display = 'none';
     });
     sliderItem[i - 1].style.display = 'block';
+    sliderItem[i - 1].classList.add('animated', 'fadeIn');
   }
 
   function changeSliderItem() {
