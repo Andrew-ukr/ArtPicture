@@ -6,11 +6,11 @@ import calc from "./modules/calc.js";
 
 window.addEventListener('DOMContentLoaded', () => {
   "use strict";
-
+  let calcData = {};
   modals();
   sliders('.feedback', '.feedback-slider-item', 'main-next-btn', 'main-prev-btn', 3000);
   sliders('.main-slider', '.main-slider-item', '', '', 3000);
-  forms();
+  forms(calcData);
   seeMore('.button-styles', '.styles-block');
-  calc();
-}); 
+  calc(calcData);
+});

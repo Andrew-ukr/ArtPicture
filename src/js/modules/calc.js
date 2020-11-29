@@ -1,4 +1,4 @@
-const calc = () => {
+const calc = (calcData) => {
   const sizeSelector = document.querySelector('#size');
   const materialSelector = document.querySelector('#material');
   const optionsSelector = document.querySelector('#options');
@@ -16,6 +16,12 @@ const calc = () => {
       result = +sizeSelector.value * (+materialSelector.value + (+optionsSelector.value));
       calcPrice.textContent = `Вартість картини ${Math.floor(result)} грн.`;
     }
+
+    calcData.size = sizeSelector.value;
+    calcData.material = materialSelector.value;
+    calcData.options = optionsSelector.value;
+    calcData.promocode = promocodeSelector.value;
+    calcData.calc = result;
   }
 
   sizeSelector.addEventListener('change', calcSum);

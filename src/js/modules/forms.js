@@ -1,4 +1,4 @@
-const forms = () => {
+const forms = (a) => {
   let form = document.querySelectorAll('form');
   let input = document.querySelectorAll('input[name="phone"]');
 
@@ -41,7 +41,6 @@ const forms = () => {
       createMassageBlock.append(statusMassage);
       createMassageBlock.style.textAlign = 'center';
 
-
       statusMassage.textContent = massage.sending;
       creaateImgTag.setAttribute('src', massage.sendingImg);
       item.parentNode.append(createMassageBlock);
@@ -60,6 +59,12 @@ const forms = () => {
         path = 'assets/design.php';
       } else {
         path = 'assets/consultation.php';
+      }
+      
+      if (item.getAttribute('data-calc') === '1') {
+        for (const key in a) {
+          formData.append(key, a[key]);
+        }
       }
 
       fetch(path, {
@@ -81,7 +86,6 @@ const forms = () => {
             element.previousElementSibling.textContent = 'Файл не выбран';
           });
         });
-
     });
   });
 };

@@ -3311,12 +3311,13 @@ __webpack_require__.r(__webpack_exports__);
 window.addEventListener('DOMContentLoaded', function () {
   "use strict";
 
+  var calcData = {};
   Object(_modules_modals_js__WEBPACK_IMPORTED_MODULE_0__["default"])();
   Object(_modules_sliders_js__WEBPACK_IMPORTED_MODULE_1__["default"])('.feedback', '.feedback-slider-item', 'main-next-btn', 'main-prev-btn', 3000);
   Object(_modules_sliders_js__WEBPACK_IMPORTED_MODULE_1__["default"])('.main-slider', '.main-slider-item', '', '', 3000);
-  Object(_modules_forms_js__WEBPACK_IMPORTED_MODULE_2__["default"])();
+  Object(_modules_forms_js__WEBPACK_IMPORTED_MODULE_2__["default"])(calcData);
   Object(_modules_seeMore_js__WEBPACK_IMPORTED_MODULE_3__["default"])('.button-styles', '.styles-block');
-  Object(_modules_calc_js__WEBPACK_IMPORTED_MODULE_4__["default"])();
+  Object(_modules_calc_js__WEBPACK_IMPORTED_MODULE_4__["default"])(calcData);
 });
 
 /***/ }),
@@ -3330,7 +3331,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-var calc = function calc() {
+var calc = function calc(calcData) {
   var sizeSelector = document.querySelector('#size');
   var materialSelector = document.querySelector('#material');
   var optionsSelector = document.querySelector('#options');
@@ -3349,6 +3350,12 @@ var calc = function calc() {
       result = +sizeSelector.value * (+materialSelector.value + +optionsSelector.value);
       calcPrice.textContent = "\u0412\u0430\u0440\u0442\u0456\u0441\u0442\u044C \u043A\u0430\u0440\u0442\u0438\u043D\u0438 ".concat(Math.floor(result), " \u0433\u0440\u043D.");
     }
+
+    calcData.size = sizeSelector.value;
+    calcData.material = materialSelector.value;
+    calcData.options = optionsSelector.value;
+    calcData.promocode = promocodeSelector.value;
+    calcData.calc = result;
   }
 
   sizeSelector.addEventListener('change', calcSum);
@@ -3392,7 +3399,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var forms = function forms() {
+var forms = function forms(a) {
   var form = document.querySelectorAll('form');
   var input = document.querySelectorAll('input[name="phone"]');
   input.forEach(function (item) {
@@ -3450,6 +3457,12 @@ var forms = function forms() {
         path = 'assets/design.php';
       } else {
         path = 'assets/consultation.php';
+      }
+
+      if (item.getAttribute('data-calc') === '1') {
+        for (var key in a) {
+          formData.append(key, a[key]);
+        }
       }
 
       fetch(path, {
