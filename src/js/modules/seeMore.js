@@ -11,7 +11,5 @@ const seeMore = (btn, cardItem) => {
       showBtn.remove();
     });
   });
-
-
 };
 export default seeMore;

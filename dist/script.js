@@ -3302,6 +3302,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_sliders_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/sliders.js */ "./src/js/modules/sliders.js");
 /* harmony import */ var _modules_forms_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/forms.js */ "./src/js/modules/forms.js");
 /* harmony import */ var _modules_seeMore_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/seeMore.js */ "./src/js/modules/seeMore.js");
+/* harmony import */ var _modules_calc_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/calc.js */ "./src/js/modules/calc.js");
+
 
 
 
@@ -3314,7 +3316,48 @@ window.addEventListener('DOMContentLoaded', function () {
   Object(_modules_sliders_js__WEBPACK_IMPORTED_MODULE_1__["default"])('.main-slider', '.main-slider-item', '', '', 3000);
   Object(_modules_forms_js__WEBPACK_IMPORTED_MODULE_2__["default"])();
   Object(_modules_seeMore_js__WEBPACK_IMPORTED_MODULE_3__["default"])('.button-styles', '.styles-block');
+  Object(_modules_calc_js__WEBPACK_IMPORTED_MODULE_4__["default"])();
 });
+
+/***/ }),
+
+/***/ "./src/js/modules/calc.js":
+/*!********************************!*\
+  !*** ./src/js/modules/calc.js ***!
+  \********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var calc = function calc() {
+  var sizeSelector = document.querySelector('#size');
+  var materialSelector = document.querySelector('#material');
+  var optionsSelector = document.querySelector('#options');
+  var promocodeSelector = document.querySelector('.promocode');
+  var calcPrice = document.querySelector('.calc-price');
+
+  function calcSum() {
+    var result;
+
+    if (sizeSelector.value === '0' || materialSelector.value === '0') {
+      calcPrice.textContent = 'Для розрахунку обовязково необхідно вибрати розмір та матеріал';
+    } else if (promocodeSelector.value === "IWANTPOPART") {
+      result = +sizeSelector.value * (+materialSelector.value + +optionsSelector.value) * 0.7;
+      calcPrice.textContent = "\u0412\u0430\u0440\u0442\u0456\u0441\u0442\u044C \u043A\u0430\u0440\u0442\u0438\u043D\u0438 ".concat(Math.floor(result), " \u0433\u0440\u043D.");
+    } else {
+      result = +sizeSelector.value * (+materialSelector.value + +optionsSelector.value);
+      calcPrice.textContent = "\u0412\u0430\u0440\u0442\u0456\u0441\u0442\u044C \u043A\u0430\u0440\u0442\u0438\u043D\u0438 ".concat(Math.floor(result), " \u0433\u0440\u043D.");
+    }
+  }
+
+  sizeSelector.addEventListener('change', calcSum);
+  materialSelector.addEventListener('change', calcSum);
+  optionsSelector.addEventListener('change', calcSum);
+  promocodeSelector.addEventListener('change', calcSum);
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (calc);
 
 /***/ }),
 
