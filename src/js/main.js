@@ -3,6 +3,7 @@ import sliders from "./modules/sliders.js";
 import forms from "./modules/forms.js";
 import seeMore from "./modules/seeMore.js";
 import calc from "./modules/calc.js";
+import filter from "./modules/filter.js";
 
 window.addEventListener('DOMContentLoaded', () => {
   "use strict";
@@ -13,4 +14,5 @@ window.addEventListener('DOMContentLoaded', () => {
   forms(calcData);
   seeMore('.button-styles', '.styles-block');
   calc(calcData);
+  filter();
 });

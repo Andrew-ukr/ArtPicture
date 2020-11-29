@@ -3303,6 +3303,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_forms_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/forms.js */ "./src/js/modules/forms.js");
 /* harmony import */ var _modules_seeMore_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/seeMore.js */ "./src/js/modules/seeMore.js");
 /* harmony import */ var _modules_calc_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/calc.js */ "./src/js/modules/calc.js");
+/* harmony import */ var _modules_filter_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/filter.js */ "./src/js/modules/filter.js");
+
 
 
 
@@ -3318,6 +3320,7 @@ window.addEventListener('DOMContentLoaded', function () {
   Object(_modules_forms_js__WEBPACK_IMPORTED_MODULE_2__["default"])(calcData);
   Object(_modules_seeMore_js__WEBPACK_IMPORTED_MODULE_3__["default"])('.button-styles', '.styles-block');
   Object(_modules_calc_js__WEBPACK_IMPORTED_MODULE_4__["default"])(calcData);
+  Object(_modules_filter_js__WEBPACK_IMPORTED_MODULE_5__["default"])();
 });
 
 /***/ }),
@@ -3365,6 +3368,70 @@ var calc = function calc(calcData) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (calc);
+
+/***/ }),
+
+/***/ "./src/js/modules/filter.js":
+/*!**********************************!*\
+  !*** ./src/js/modules/filter.js ***!
+  \**********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var filter = function filter() {
+  var btnItems = document.querySelector('.portfolio-menu');
+  var btnItem = document.querySelectorAll('.portfolio-menu li');
+  var ImgItem = document.querySelectorAll('.portfolio-block');
+  var noImgItem = document.querySelector('.portfolio-no');
+  var curentBtnItem;
+  btnItems.addEventListener('click', function (e) {
+    if (e.target && e.target.tagName === "LI") {
+      btnItem.forEach(function (item) {
+        item.classList.remove('active', 'animated', 'fadeIn');
+      });
+      curentBtnItem = "".concat(e.target.classList.item(0));
+      e.target.classList.add('active', 'animated', 'fadeIn');
+      console.log(curentBtnItem);
+      showImgItem(curentBtnItem);
+    }
+  });
+
+  function showImgItem(curentBtnItem) {
+    var counter = 0;
+    noImgItem.style.display = 'none';
+    ImgItem.forEach(function (item) {
+      item.classList.remove('animated', 'fadeIn');
+      item.style.display = 'none';
+
+      if (item.classList.contains(curentBtnItem)) {
+        item.classList.add('animated', 'fadeIn');
+        item.style.display = 'block';
+        counter++;
+      }
+    });
+
+    if (counter === 0) {
+      noImgItem.style.display = 'block';
+      noImgItem.classList.add('animated', 'fadeIn');
+    }
+
+    setTimeout(function () {
+      // ВИДАЛЕННЯ КЛАСІВ АНІМАЦІЇ ПІСЛЯ ТОГО ЯК ВОНИ ЗАСТОСУВАЛИСЯ (БУВ БАГ ПРИ КЛІКУ, У ЕЛЕМЕНТІВ КОТРІ БУЛИ ПРИСУТНІ В ПОПЕРЕДНЬОМУ ФІЛЬТРІ НЕ ЗАСТОСОВУВАЛАСЬ АНІАЦІЯ)
+      ImgItem.forEach(function (item) {
+        item.classList.remove('animated', 'fadeIn');
+      });
+      noImgItem.classList.remove('animated', 'fadeIn');
+    }, 700);
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (filter);
 
 /***/ }),
 
