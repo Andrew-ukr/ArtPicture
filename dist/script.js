@@ -3304,6 +3304,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_seeMore_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/seeMore.js */ "./src/js/modules/seeMore.js");
 /* harmony import */ var _modules_calc_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/calc.js */ "./src/js/modules/calc.js");
 /* harmony import */ var _modules_filter_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/filter.js */ "./src/js/modules/filter.js");
+/* harmony import */ var _modules_imgChange_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/imgChange.js */ "./src/js/modules/imgChange.js");
+
 
 
 
@@ -3321,6 +3323,7 @@ window.addEventListener('DOMContentLoaded', function () {
   Object(_modules_seeMore_js__WEBPACK_IMPORTED_MODULE_3__["default"])('.button-styles', '.styles-block');
   Object(_modules_calc_js__WEBPACK_IMPORTED_MODULE_4__["default"])(calcData);
   Object(_modules_filter_js__WEBPACK_IMPORTED_MODULE_5__["default"])();
+  Object(_modules_imgChange_js__WEBPACK_IMPORTED_MODULE_6__["default"])();
 });
 
 /***/ }),
@@ -3557,6 +3560,50 @@ var forms = function forms(a) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (forms);
+
+/***/ }),
+
+/***/ "./src/js/modules/imgChange.js":
+/*!*************************************!*\
+  !*** ./src/js/modules/imgChange.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var core_js_modules_es_array_slice__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.array.slice */ "./node_modules/core-js/modules/es.array.slice.js");
+/* harmony import */ var core_js_modules_es_array_slice__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_slice__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_1__);
+
+
+
+var imgChange = function imgChange() {
+  var item = document.querySelectorAll('.sizes-block');
+  item.forEach(function (elem) {
+    elem.addEventListener('mouseover', function () {
+      var itemElem = elem.querySelectorAll('p:not(.sizes-hit)').forEach(function (element) {
+        element.style.display = 'none';
+        element.classList.remove('animated', 'fadeIn');
+      });
+      var itemImg = elem.querySelector('img');
+      itemImg.classList.add('animated', 'fadeIn');
+      itemImg.src = itemImg.src.slice(0, -4) + "-1.png";
+    });
+    elem.addEventListener('mouseout', function () {
+      var itemElem = elem.querySelectorAll('p:not(.sizes-hit)').forEach(function (element) {
+        element.style.display = 'block';
+        element.classList.add('animated', 'fadeIn');
+      });
+      var itemImg = elem.querySelector('img');
+      itemImg.classList.remove('animated', 'fadeIn');
+      itemImg.src = itemImg.src.slice(0, -6) + ".png";
+    });
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (imgChange);
 
 /***/ }),
 

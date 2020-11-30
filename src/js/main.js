@@ -4,6 +4,7 @@ import forms from "./modules/forms.js";
 import seeMore from "./modules/seeMore.js";
 import calc from "./modules/calc.js";
 import filter from "./modules/filter.js";
+import imgChange from "./modules/imgChange.js";
 
 window.addEventListener('DOMContentLoaded', () => {
   "use strict";
@@ -15,4 +16,5 @@ window.addEventListener('DOMContentLoaded', () => {
   seeMore('.button-styles', '.styles-block');
   calc(calcData);
   filter();
+  imgChange();
 });
