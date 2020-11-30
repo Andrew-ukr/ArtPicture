@@ -921,7 +921,6 @@ h4 {
 .often-questions .ui-accordion-header-active {
   cursor: auto;
   color: #c51abb;
-  margin-bottom: 0;
 }
 .often-questions .ui-accordion-header-active span {
   border-bottom: none;

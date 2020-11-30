@@ -12,7 +12,6 @@ const filter = () => {
       });
       curentBtnItem = `${e.target.classList.item(0)}`;
       e.target.classList.add('active', 'animated', 'fadeIn');
-      console.log(curentBtnItem);
       showImgItem(curentBtnItem);
     }
   });
