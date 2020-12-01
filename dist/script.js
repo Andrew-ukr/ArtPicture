@@ -3306,6 +3306,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_filter_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/filter.js */ "./src/js/modules/filter.js");
 /* harmony import */ var _modules_imgChange_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/imgChange.js */ "./src/js/modules/imgChange.js");
 /* harmony import */ var _modules_acardion_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/acardion.js */ "./src/js/modules/acardion.js");
+/* harmony import */ var _modules_menu_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/menu.js */ "./src/js/modules/menu.js");
+
 
 
 
@@ -3327,6 +3329,7 @@ window.addEventListener('DOMContentLoaded', function () {
   Object(_modules_filter_js__WEBPACK_IMPORTED_MODULE_5__["default"])();
   Object(_modules_imgChange_js__WEBPACK_IMPORTED_MODULE_6__["default"])();
   Object(_modules_acardion_js__WEBPACK_IMPORTED_MODULE_7__["default"])();
+  Object(_modules_menu_js__WEBPACK_IMPORTED_MODULE_8__["default"])();
 });
 
 /***/ }),
@@ -3656,6 +3659,40 @@ var imgChange = function imgChange() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (imgChange);
+
+/***/ }),
+
+/***/ "./src/js/modules/menu.js":
+/*!********************************!*\
+  !*** ./src/js/modules/menu.js ***!
+  \********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var menu = function menu() {
+  var menuBtn = document.querySelector('button.burger');
+  var menuBlock = document.querySelector('.burger-menu');
+  menuBtn.addEventListener('click', function () {
+    if (menuBlock.style.display === "none" && window.screen.availWidth < 993) {
+      menuBlock.style.display = "block";
+      menuBlock.classList.add('animated', 'fadeIn');
+    } else {
+      menuBlock.classList.remove('animated', 'fadeIn');
+      menuBlock.style.display = "none";
+    }
+
+    window.addEventListener('resize', function () {
+      if (window.screen.availWidth > 992) {
+        menuBlock.style.display = "none";
+        menuBlock.classList.remove('animated', 'fadeIn');
+      }
+    });
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (menu);
 
 /***/ }),
 

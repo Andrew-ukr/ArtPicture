@@ -6,6 +6,7 @@ import calc from "./modules/calc.js";
 import filter from "./modules/filter.js";
 import imgChange from "./modules/imgChange.js";
 import acardion from "./modules/acardion.js";
+import menu from "./modules/menu.js";
 
 window.addEventListener('DOMContentLoaded', () => {
   "use strict";
@@ -20,4 +21,5 @@ window.addEventListener('DOMContentLoaded', () => {
   filter();
   imgChange();
   acardion();
+  menu();
 });
