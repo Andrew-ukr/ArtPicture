@@ -3716,6 +3716,7 @@ var modals = function modals() {
   var scrollWidth;
   var modalTimer;
   var giftBtn = document.querySelector('.fixed-gift');
+  var up = document.querySelector('.pageup');
   var counterOpenModal = false;
 
   function openModal(btnClass, modalPopupClass, closeBtnClass, overlayClose, destroy) {
@@ -3743,6 +3744,7 @@ var modals = function modals() {
         document.body.style.overflow = 'hidden';
         document.body.style.marginRight = "".concat(scrollWidth, "px");
         giftBtn.style.marginRight = "".concat(scrollWidth, "px");
+        up.style.marginRight = "".concat(scrollWidth, "px");
         clearTimeout(modalTimer);
       });
     });
@@ -3754,6 +3756,7 @@ var modals = function modals() {
       modalPopup.style.display = 'none';
       document.body.style.overflow = '';
       giftBtn.style.marginRight = "";
+      up.style.marginRight = "";
       document.body.style.marginRight = "";
     });
     modalPopup.addEventListener('click', function (e) {
@@ -3761,6 +3764,7 @@ var modals = function modals() {
         modalPopup.style.display = 'none';
         document.body.style.overflow = '';
         giftBtn.style.marginRight = "";
+        up.style.marginRight = "";
         document.body.style.marginRight = "";
       }
     });
@@ -3820,11 +3824,11 @@ __webpack_require__.r(__webpack_exports__);
 var pageUp = function pageUp() {
   var up = document.querySelector('.pageup');
   window.addEventListener('scroll', function () {
-    console.log(document.documentElement.scrollTop);
-
     if (document.documentElement.scrollTop > 1000) {
+      up.classList.add('animated', 'fadeIn');
       up.style.opacity = '0.8';
     } else {
+      up.classList.remove('animated', 'fadeIn');
       up.style.opacity = '0';
     }
   });

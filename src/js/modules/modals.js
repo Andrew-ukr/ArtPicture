@@ -2,6 +2,8 @@ const modals = () => {
   let scrollWidth;
   let modalTimer;
   let giftBtn = document.querySelector('.fixed-gift');
+  const up = document.querySelector('.pageup');
+
   let counterOpenModal = false;
 
   function openModal(btnClass, modalPopupClass, closeBtnClass, overlayClose, destroy) {
@@ -31,6 +33,7 @@ const modals = () => {
         document.body.style.overflow = 'hidden';
         document.body.style.marginRight = `${scrollWidth}px`;
         giftBtn.style.marginRight = `${scrollWidth}px`;
+        up.style.marginRight = `${scrollWidth}px`;
         clearTimeout(modalTimer);
       });
     });
@@ -42,6 +45,7 @@ const modals = () => {
       modalPopup.style.display = 'none';
       document.body.style.overflow = '';
       giftBtn.style.marginRight = ``;
+      up.style.marginRight = ``;
       document.body.style.marginRight = ``;
     });
 
@@ -50,6 +54,7 @@ const modals = () => {
         modalPopup.style.display = 'none';
         document.body.style.overflow = '';
         giftBtn.style.marginRight = ``;
+        up.style.marginRight = ``;
         document.body.style.marginRight = ``;
       }
     });

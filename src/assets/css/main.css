@@ -1502,12 +1502,12 @@ h4 {
   height: 26px;
   position: fixed;
   bottom: 100px;
-  right: 5%;
+  right: 50px;
   z-index: 19;
   background-color: #fff;
   cursor: pointer;
   border: 1px solid white;
-  transition: 1s all;
+  /* transition: 1s all; */
 }
 
 @media (max-width: 1399px) {
