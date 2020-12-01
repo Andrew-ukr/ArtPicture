@@ -7,6 +7,7 @@ import filter from "./modules/filter.js";
 import imgChange from "./modules/imgChange.js";
 import acardion from "./modules/acardion.js";
 import menu from "./modules/menu.js";
+import pageUp from "./modules/pageUp.js";
 
 window.addEventListener('DOMContentLoaded', () => {
   "use strict";
@@ -22,4 +23,5 @@ window.addEventListener('DOMContentLoaded', () => {
   imgChange();
   acardion();
   menu();
+  pageUp();
 });

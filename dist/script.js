@@ -3307,6 +3307,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_imgChange_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/imgChange.js */ "./src/js/modules/imgChange.js");
 /* harmony import */ var _modules_acardion_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/acardion.js */ "./src/js/modules/acardion.js");
 /* harmony import */ var _modules_menu_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/menu.js */ "./src/js/modules/menu.js");
+/* harmony import */ var _modules_pageUp_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/pageUp.js */ "./src/js/modules/pageUp.js");
+
 
 
 
@@ -3330,6 +3332,7 @@ window.addEventListener('DOMContentLoaded', function () {
   Object(_modules_imgChange_js__WEBPACK_IMPORTED_MODULE_6__["default"])();
   Object(_modules_acardion_js__WEBPACK_IMPORTED_MODULE_7__["default"])();
   Object(_modules_menu_js__WEBPACK_IMPORTED_MODULE_8__["default"])();
+  Object(_modules_pageUp_js__WEBPACK_IMPORTED_MODULE_9__["default"])();
 });
 
 /***/ }),
@@ -3802,6 +3805,32 @@ var modals = function modals() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (modals);
+
+/***/ }),
+
+/***/ "./src/js/modules/pageUp.js":
+/*!**********************************!*\
+  !*** ./src/js/modules/pageUp.js ***!
+  \**********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var pageUp = function pageUp() {
+  var up = document.querySelector('.pageup');
+  window.addEventListener('scroll', function () {
+    console.log(document.documentElement.scrollTop);
+
+    if (document.documentElement.scrollTop > 1000) {
+      up.style.opacity = '0.8';
+    } else {
+      up.style.opacity = '0';
+    }
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (pageUp);
 
 /***/ }),
 
